@@ -18,6 +18,8 @@
 .env.test.local
 .env.production.local
 .eslintcache
+.git
+
 package-lock.json
 README.md
 
