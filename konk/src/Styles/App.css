@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "VK Sans";
+    src: url("../Fonts/VK_Sans_DemiBold.otf") format("opentype");
+}
+
+body {
+    font-family: "VK Sans"!important;
+}
