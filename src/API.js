@@ -1,5 +1,5 @@
 class API {
-    static URL = "https://ssapi.ru/";
+    static URL = "https://testapi.com/";
 
     static async sendRequest(method, params = {}) {
         console.log(`📍 Fetch POST request to method: ${method.toString()}`);

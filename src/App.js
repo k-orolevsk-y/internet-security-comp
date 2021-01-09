@@ -24,7 +24,7 @@ const App = () => {
                    <Route path="/advice">
                        <Advice/>
                    </Route>
-                   <Route path="/test/:id">
+                   <Route path="/test/:testId/:question?/:greeting?">
                        <Tests/>
                    </Route>
 
