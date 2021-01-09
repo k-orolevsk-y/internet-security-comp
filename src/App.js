@@ -9,6 +9,7 @@ import {
 import Main from "./Panels/Main";
 import Advice from "./Panels/Advice";
 import Tests from "./Panels/Tests";
+import FinishTest from "./Panels/FinishTest";
 
 import "bootswatch/dist/lux/bootstrap.css";
 import "./Styles/App.css";
@@ -24,8 +25,11 @@ const App = () => {
                    <Route path="/advice">
                        <Advice/>
                    </Route>
-                   <Route path="/test/:testId/:question?/:greeting?">
+                   <Route path="/test/:testId/:question?">
                        <Tests/>
+                   </Route>
+                   <Route path="/finishTest/:testId">
+                       <FinishTest/>
                    </Route>
 
                    <Redirect from='*' to='/' />

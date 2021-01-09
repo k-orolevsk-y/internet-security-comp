@@ -12,8 +12,11 @@ const Main = () => {
 
     useEffect(() => {
         let user = localStorage.getItem("user");
-        if(user !== null) {
-            history.push('/test/1');
+        if(user === "baby") {
+            history.push('/test/1#greeting');
+            return;
+        } else if(user === "parent") {
+            history.push('/test/2#greeting');
             return;
         }
 
@@ -37,7 +40,7 @@ const Main = () => {
                         className="btn-1"
                         onClick={() => {
                             localStorage.setItem("user", "parent");
-                            history.push('/test/2');
+                            history.push('/test/2#greeting');
                         }}
                     >
                         Я родитель
@@ -47,7 +50,7 @@ const Main = () => {
                         className="btn-2"
                         onClick={() => {
                             localStorage.setItem("user", "baby");
-                            history.push('/test/1');
+                            history.push('/test/1#greeting');
                         }}
                     >
                         Я ребёнок

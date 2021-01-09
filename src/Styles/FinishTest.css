@@ -1,0 +1,14 @@
+.animation_progress_bar {
+    width: 5%;
+    animation: progressBarMore 1s normal forwards ease-in-out;
+}
+
+@keyframes progressBarMore {
+    0% {
+        width: 5%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
