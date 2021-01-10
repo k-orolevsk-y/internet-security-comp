@@ -11,7 +11,8 @@ import "../Styles/Tests.css";
 const Tests = () => {
     const [test, setTest] = useState({});
     const [question, setQuestion] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState(-1)
+    const [selectedAnswer, setSelectedAnswer] = useState(-1);
+    const [showCorrect, setShowCorrect] = useState(false);
 
     let params = useParams();
     let history = useHistory();
@@ -46,11 +47,15 @@ const Tests = () => {
             if(testStorageInfo !== null && typeof(testStorageInfo) != "undefined") {
                 if(testStorageInfo.questionsCompleted.indexOf(question.toString()) !== -1) {
                     if(testResponse.questions[(question+1)] === undefined) {
+                        setTest({}); // specifically to prevent the test from appearing on redirect
                         history.push('/finishTest/'+testResponse.id.toString());
                     } else {
+                        setTest({}); // specifically to prevent the test from appearing on redirect
                         history.push('/test/'+testResponse.id.toString()+'/'+(question+2).toString());
                     }
                 }
+            } else if(question >= 1) {
+                window.location.href = '/test/'+testResponse.id.toString();
             }
         } else {
             // specially, so that the inscription does not flash that such a test does not exist
@@ -94,20 +99,34 @@ const Tests = () => {
                                     Необходимо выбрать<br/>правильный ответ!
                                 </Alert>
                                 }
-                                {test.questions.map((item, key) => {
+                                {test.questions.map((quest, key) => {
                                     if(key === question) {
                                         return(
                                             <Form key={question}>
                                                 <Form.Group>
-                                                    {item.answers.map((item, key) => {
-                                                        return(
-                                                            <Form.Check
-                                                                name={"test-"+question.toString()}
-                                                                key={key}
-                                                                type="radio"
-                                                                label={item}
-                                                                onClick={() => setSelectedAnswer(key)}
-                                                            />)
+                                                    {quest.answers.map((item, key2) => {
+                                                        console.log(key2.toString() + " " + quest.rightAnswer.toString())
+                                                        if(key2 === quest.rightAnswer) {
+                                                            return(
+                                                                <Form.Check
+                                                                    name={"test-"+question.toString()}
+                                                                    key={key2}
+                                                                    type="radio"
+                                                                    label={item}
+                                                                    onClick={() => setSelectedAnswer(key2)}
+                                                                    isValid={showCorrect}
+                                                                />)
+                                                        } else {
+                                                            return(
+                                                                <Form.Check
+                                                                    name={"test-"+question.toString()}
+                                                                    key={key2}
+                                                                    type="radio"
+                                                                    label={item}
+                                                                    onClick={() => setSelectedAnswer(key2)}
+                                                                    isInvalid={showCorrect}
+                                                                />)
+                                                        }
                                                     })}
                                                 </Form.Group>
                                             </Form>
@@ -117,6 +136,7 @@ const Tests = () => {
                                     return null;
                                 })}
                                 <Button
+                                    disabled={showCorrect}
                                     onClick={() => {
                                         if (selectedAnswer === -1) {
                                             setSelectedAnswer(-2);
@@ -144,16 +164,21 @@ const Tests = () => {
                                         newInfo.questionsCompleted = [...newInfo.questionsCompleted, question.toString()];
                                         localStorage.setItem("test-" + test.id.toString(), JSON.stringify(newInfo));
 
-                                        if (test.questions[(question + 1)] === undefined) {
-                                            history.push('/finishTest/' + test.id.toString());
-                                        } else {
-                                            history.push('/test/' + test.id.toString() + '/' + (question + 2).toString());
-                                        }
-
                                         setSelectedAnswer(-1);
+
+                                        setShowCorrect(true);
+                                        setTimeout(() => {
+                                            setShowCorrect(false);
+
+                                            if (test.questions[(question + 1)] === undefined) {
+                                                history.push('/finishTest/' + test.id.toString());
+                                            } else {
+                                                history.push('/test/' + test.id.toString() + '/' + (question + 2).toString());
+                                            }
+                                        }, 1250);
                                     }}
                                 >
-                                    Проверить
+                                    Отправить
                                 </Button>
                             </div>}
                     </Container>

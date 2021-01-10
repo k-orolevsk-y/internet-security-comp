@@ -3,6 +3,17 @@
     animation: progressBarMore 1s normal forwards ease-in-out;
 }
 
+.progress {
+    background: #eeecec !important;
+}
+
+.progress_bar_zero .progress-bar {
+    color: black!important;
+    text-align: center!important;
+    width: 100%!important;
+    background: none;
+}
+
 @keyframes progressBarMore {
     0% {
         width: 5%;

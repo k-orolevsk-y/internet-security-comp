@@ -12,7 +12,7 @@ const Advice = () => {
     return([
         <Header key={0}/>,
         <main key={1}>
-            test
+
         </main>,
         <Footer key={2}/>
     ]);

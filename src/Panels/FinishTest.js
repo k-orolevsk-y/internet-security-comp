@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useParams, useHistory } from "react-router-dom";
-import {Container, Row, Col, ProgressBar} from "react-bootstrap";
+import {Container, Row, Col, ProgressBar, OverlayTrigger, Tooltip, Card, Button} from "react-bootstrap";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -50,7 +50,41 @@ const FinishTest = () => {
                 </Row>
                 <Row>
                     <Col>
-                        <ProgressBar className="animation_progress_bar" now={testInfo.percent} label={`${testInfo.percent}%`} />
+                        <OverlayTrigger
+                            overlay={
+                                <Tooltip id="progressbar">
+                                    Этот прогресс бар показывает то, насколько Вы выполнили тест в процентах.
+                                </Tooltip>
+                            }
+                            placement={
+                                testInfo.percent < 35 ? "bottom-start" : (testInfo.percent < 75 ? "bottom" : "bottom-end")
+                            }
+                        >
+                            <ProgressBar className="animation_progress_bar" className={testInfo.percent === 0 && "progress_bar_zero"} now={testInfo.percent} label={`${testInfo.percent}%`} />
+                        </OverlayTrigger>
+                    </Col>
+                </Row>
+                <Row className="mt-5">
+                    <Col className="text-center">
+                        <Card>
+                            <Card.Header className="text-center">{testInfo.rights.toString() + " / " + testInfo.test.questions.length.toString()}</Card.Header>
+                            <Card.Body
+                                dangerouslySetInnerHTML={{__html:
+                                    testInfo.percent <= 25 ? testInfo.test.infoFinish[0] :
+                                    testInfo.percent <= 50 ? testInfo.test.infoFinish[1] :
+                                    testInfo.percent <= 75 ? testInfo.test.infoFinish[2] :
+                                    testInfo.test.infoFinish[3]
+                                }}
+                            />
+                        </Card>
+                        <Button
+                            className="mt-5"
+                            onClick={() => {
+                                history.push('')
+                            }}
+                        >
+                            Перейти к изучению информации
+                        </Button>
                     </Col>
                 </Row>
             </Container>
