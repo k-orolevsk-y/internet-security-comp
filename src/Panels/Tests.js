@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useParams, useHistory } from "react-router-dom";
-import {Form, Container, Button, Alert} from "react-bootstrap";
-import API from "../Tests/API";
+import {Form, Container, Button, Alert, Row, Col} from "react-bootstrap";
+import TestsAPI from "../API/TestsAPI";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -13,6 +13,7 @@ const Tests = () => {
     const [question, setQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(-1);
     const [showCorrect, setShowCorrect] = useState(false);
+    const [testPassed, setTestPassed] = useState(false);
 
     let params = useParams();
     let history = useHistory();
@@ -27,7 +28,7 @@ const Tests = () => {
             return;
         }
 
-        const testResponse = API.getTest(parseInt(params.testId));
+        const testResponse = TestsAPI.getTest(parseInt(params.testId));
         if(testResponse !== null) {
             if(testResponse.whom === user) {
                 setTest(testResponse);
@@ -45,6 +46,11 @@ const Tests = () => {
 
             let testStorageInfo = JSON.parse(localStorage.getItem("test-"+testResponse.id.toString()));
             if(testStorageInfo !== null && typeof(testStorageInfo) != "undefined") {
+                if(testStorageInfo.passed) {
+                    setTestPassed(true);
+                    return;
+                }
+
                 if(testStorageInfo.questionsCompleted.indexOf(question.toString()) !== -1) {
                     if(testResponse.questions[(question+1)] === undefined) {
                         setTest({}); // specifically to prevent the test from appearing on redirect
@@ -66,16 +72,47 @@ const Tests = () => {
     return([
         <Header key={0}/>,
         <main key={1}>
-            {test === null ?
+            {testPassed ?
                 <Container className="text-center">
-                    <h2 className="mb-4">Тест не найден!</h2>
-                    <Button
-                        onClick={() => {
-                            history.push('/');
-                        }}
-                    >
-                        Вернуться на главную
-                    </Button>
+                    <Row>
+                        <Col>
+                            <h2 className="mb-4">Вы уже прошли данный тест, хотите пройти его ещё раз?</h2>
+                            <Button
+                                onClick={() => {
+                                    localStorage.removeItem("test-"+params.testId.toString());
+                                    window.location.href = '/test/'+params.testId.toString()+"#greeting";
+                                }}
+                                size="lg"
+                                style={{ width: "15%" }}
+                            >
+                                Да
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    history.push('/info/1');
+                                }}
+                                size="lg"
+                                style={{ width: "15%", marginLeft: "3%" }}
+                            >
+                                Нет
+                            </Button>
+                        </Col>
+                    </Row>
+                </Container>
+                : test === null ?
+                <Container className="text-center">
+                    <Row>
+                        <Col>
+                            <h2 className="mb-4">Тест не найден!</h2>
+                            <Button
+                                onClick={() => {
+                                    history.push('/');
+                                }}
+                            >
+                                Вернуться на главную
+                            </Button>
+                        </Col>
+                    </Row>
                 </Container>
             :
                 window.location.hash === "#greeting" && ( typeof(test.greeting) != "undefined" && test.greeting !== null ) ?
@@ -148,7 +185,8 @@ const Tests = () => {
                                             testStorageInfo = JSON.stringify({
                                                 rights: 0,
                                                 wrongs: 0,
-                                                questionsCompleted: []
+                                                questionsCompleted: [],
+                                                passed: false
                                             });
 
                                             localStorage.setItem("test-" + test.id.toString(), testStorageInfo);

@@ -8,6 +8,8 @@ import {
 
 import Main from "./Panels/Main";
 import Advice from "./Panels/Advice";
+import Mistakes from "./Panels/Mistakes";
+import Info from "./Panels/Info";
 import Tests from "./Panels/Tests";
 import FinishTest from "./Panels/FinishTest";
 
@@ -24,6 +26,12 @@ const App = () => {
                    </Route>
                    <Route path="/advice">
                        <Advice/>
+                   </Route>
+                   <Route path="/mistakes">
+                       <Mistakes/>
+                   </Route>
+                   <Route path="/info/:infoId">
+                       <Info/>
                    </Route>
                    <Route path="/test/:testId/:question?">
                        <Tests/>

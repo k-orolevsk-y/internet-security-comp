@@ -1,4 +1,4 @@
-class API {
+class TestsAPI {
     static tests = {
         1: {
             id: 1,
@@ -52,4 +52,4 @@ class API {
     }
 }
 
-export default API;
+export default TestsAPI;

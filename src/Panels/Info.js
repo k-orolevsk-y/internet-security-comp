@@ -3,10 +3,10 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
 
-const Mistakes = () => {
+const Info = () => {
 
     useEffect(() => {
-        document.title = "Безопасность | Ошибки"
+        document.title = "Безопасность | Изучение информации"
     }, []);
 
     return([
@@ -18,4 +18,4 @@ const Mistakes = () => {
     ]);
 }
 
-export default Mistakes;
+export default Info;

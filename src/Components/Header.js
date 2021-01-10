@@ -19,7 +19,7 @@ const Header = () => {
                                 <Nav.Link active={window.location.href.split("/").pop() === "active"} as={NavLink} to="/advice">Советы</Nav.Link>
                             </Nav.Item>
                             <Nav.Item className="link-header">
-                                <Nav.Link active={window.location.href.split("/").pop() === "errors"} as={NavLink} to="/errors">Ошибки</Nav.Link>
+                                <Nav.Link active={window.location.href.split("/").pop() === "mistakes"} as={NavLink} to="/mistakes">Ошибки</Nav.Link>
                             </Nav.Item>
                         </Nav>
                     </Navbar.Collapse>

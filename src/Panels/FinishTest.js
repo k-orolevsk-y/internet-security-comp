@@ -4,7 +4,7 @@ import {Container, Row, Col, ProgressBar, OverlayTrigger, Tooltip, Card, Button}
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import API from "../Tests/API";
+import TestsAPI from "../API/TestsAPI";
 
 import "../Styles/FinishTest.css";
 
@@ -22,9 +22,12 @@ const FinishTest = () => {
         if(testStorageInfo === null) {
             history.push("/");
             return;
+        } else if(testStorageInfo.passed) {
+            history.push("/test/1");
+            return;
         }
 
-        const test = API.getTest(parseInt(params.testId));
+        const test = TestsAPI.getTest(parseInt(params.testId));
         if(test === null) {
             history.push("/");
             return;
@@ -80,7 +83,13 @@ const FinishTest = () => {
                         <Button
                             className="mt-5"
                             onClick={() => {
-                                history.push('')
+                                const testStorageInfo = JSON.parse(localStorage.getItem("test-"+params.testId.toString()));
+                                if(testStorageInfo !== null) {
+                                    testStorageInfo.passed = true;
+                                    localStorage.setItem("test-"+params.testId.toString(), JSON.stringify(testStorageInfo));
+                                }
+
+                                history.push('/info/1');
                             }}
                         >
                             Перейти к изучению информации
