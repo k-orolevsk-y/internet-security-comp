@@ -1,7 +1,20 @@
+import React from "react";
+import {Container} from "react-bootstrap";
+
 class InfoAPI {
     static info = {
         1: {
-            title: ""
+            html:
+                <>
+                    <h1 className="text-center">Введение в интернетную безопасность</h1>
+                    <Container>
+
+                    </Container>
+                </>,
+            breadcrumb: [
+                [ "Безопасность" ],
+                [ "Введение в безопасность" ]
+            ]
         }
     }
 

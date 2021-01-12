@@ -70,7 +70,7 @@ const FinishTest = () => {
                 <Row className="mt-5">
                     <Col className="text-center">
                         <Card>
-                            <Card.Header className="text-center">{testInfo.rights.toString() + " / " + testInfo.test.questions.length.toString()}</Card.Header>
+                            <Card.Header className="text-center">Ваш результат: {testInfo.rights.toString() + " / " + testInfo.test.questions.length.toString()}</Card.Header>
                             <Card.Body
                                 dangerouslySetInnerHTML={{__html:
                                     testInfo.percent <= 25 ? testInfo.test.infoFinish[0] :

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { useParams, useHistory } from "react-router-dom";
 import {Form, Container, Button, Alert, Row, Col, Image, Modal} from "react-bootstrap";
-import TestsAPI from "../API/TestsAPI";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
 import "../Styles/Tests.css";
+import TestsAPI from "../API/TestsAPI";
 
 const Tests = () => {
     const [test, setTest] = useState({});
@@ -179,7 +179,7 @@ const Tests = () => {
                                                             Изображение связанное с вопросом
                                                         </Modal.Header>
                                                         <Modal.Body>
-                                                            <Image src={quest.img} width="100%" fluid rounded/>
+                                                            <Image src={quest.img} fluid rounded/>
                                                         </Modal.Body>
                                                     </Modal>
                                                     {form}

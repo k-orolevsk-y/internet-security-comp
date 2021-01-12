@@ -13,10 +13,22 @@ const Main = () => {
     useEffect(() => {
         let user = localStorage.getItem("user");
         if(user === "baby") {
-            history.push('/test/1#greeting');
+            let testStorage = JSON.parse(localStorage.getItem("test-1"));
+            if(testStorage === null) history.push('/test/1#greeting');
+            else {
+                if(!testStorage.passed) history.push('/test/1#greeting');
+                else history.push('/info/1');
+            }
+
             return;
         } else if(user === "parent") {
-            history.push('/test/2#greeting');
+            let testStorage = JSON.parse(localStorage.getItem("test-2"));
+            if(testStorage === null) history.push('/test/2#greeting');
+            else {
+                if(!testStorage.passed) history.push('/test/2#greeting');
+                else history.push('/info/1');
+            }
+
             return;
         }
 

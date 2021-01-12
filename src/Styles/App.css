@@ -10,3 +10,7 @@ body {
 .btn {
     border-radius: 35px;
 }
+
+.btn-primary:hover {
+    background: #343434;
+}
