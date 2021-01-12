@@ -63,7 +63,7 @@ const FinishTest = () => {
                                 testInfo.percent < 35 ? "bottom-start" : (testInfo.percent < 75 ? "bottom" : "bottom-end")
                             }
                         >
-                            <ProgressBar className="animation_progress_bar" className={testInfo.percent === 0 && "progress_bar_zero"} now={testInfo.percent} label={`${testInfo.percent}%`} />
+                            <ProgressBar className={(testInfo.percent === 0 && "progress_bar_zero") + " animation_progress_bar"} now={testInfo.percent} label={`${testInfo.percent}%`} />
                         </OverlayTrigger>
                     </Col>
                 </Row>
@@ -89,7 +89,7 @@ const FinishTest = () => {
                                     localStorage.setItem("test-"+params.testId.toString(), JSON.stringify(testStorageInfo));
                                 }
 
-                                history.push('/info/1');
+                                history.push('/info/'+testInfo.test.infoId);
                             }}
                         >
                             Перейти к изучению информации

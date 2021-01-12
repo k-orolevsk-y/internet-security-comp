@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useParams, useHistory } from "react-router-dom";
-import {Form, Container, Button, Alert, Row, Col} from "react-bootstrap";
+import {Form, Container, Button, Alert, Row, Col, Image, Modal} from "react-bootstrap";
 import TestsAPI from "../API/TestsAPI";
 
 import Header from "../Components/Header";
@@ -14,6 +14,7 @@ const Tests = () => {
     const [selectedAnswer, setSelectedAnswer] = useState(-1);
     const [showCorrect, setShowCorrect] = useState(false);
     const [testPassed, setTestPassed] = useState(false);
+    const [showPhoto, setShowPhoto] = useState(false);
 
     let params = useParams();
     let history = useHistory();
@@ -80,10 +81,11 @@ const Tests = () => {
                             <Button
                                 onClick={() => {
                                     localStorage.removeItem("test-"+params.testId.toString());
-                                    window.location.href = '/test/'+params.testId.toString()+"#greeting";
+                                    history.push('/test/'+params.testId.toString()+"#greeting");
+                                    setTestPassed(false);
                                 }}
-                                size="lg"
-                                style={{ width: "15%" }}
+                                size={window.innerWidth >= 961 ? "lg" : "sm" }
+                                style={window.innerWidth >= 961 ? { width: "15%" } : {}}
                             >
                                 Да
                             </Button>
@@ -91,8 +93,8 @@ const Tests = () => {
                                 onClick={() => {
                                     history.push('/info/1');
                                 }}
-                                size="lg"
-                                style={{ width: "15%", marginLeft: "3%" }}
+                                size={window.innerWidth >= 961 ? "lg" : "sm" }
+                                style={ window.innerWidth >= 961 ? { width: "15%", marginLeft: "3%" } : { marginLeft: "3%" }}
                             >
                                 Нет
                             </Button>
@@ -128,9 +130,11 @@ const Tests = () => {
                     </Container>
                     :
                     <Container>
-                        {test.questions &&
-                            <div className="text-center">
-                                <h2 className="mb-4">{test.questions[question].title}</h2>
+                        {test.questions && <div className="text-center">
+                                <h2 className="mb-4">
+                                    {test.questions[question].title}
+                                    {test.questions[question].img && <i style={{ fontSize: "16px", color: "gray" }}><br/>(У данного вопроса есть изображение)</i>}
+                                </h2>
                                 {selectedAnswer === -2 &&
                                 <Alert variant="danger" style={{ width: "60%", marginLeft: "20%" }}>
                                     Необходимо выбрать<br/>правильный ответ!
@@ -138,11 +142,10 @@ const Tests = () => {
                                 }
                                 {test.questions.map((quest, key) => {
                                     if(key === question) {
-                                        return(
+                                        const form = (
                                             <Form key={question}>
                                                 <Form.Group>
                                                     {quest.answers.map((item, key2) => {
-                                                        console.log(key2.toString() + " " + quest.rightAnswer.toString())
                                                         if(key2 === quest.rightAnswer) {
                                                             return(
                                                                 <Form.Check
@@ -166,8 +169,32 @@ const Tests = () => {
                                                         }
                                                     })}
                                                 </Form.Group>
-                                            </Form>
-                                        )
+                                            </Form>);
+
+                                        if(quest.img !== undefined) {
+                                            return(
+                                                <>
+                                                    <Modal show={showPhoto} onHide={() => setShowPhoto(false)}>
+                                                        <Modal.Header closeButton>
+                                                            Изображение связанное с вопросом
+                                                        </Modal.Header>
+                                                        <Modal.Body>
+                                                            <Image src={quest.img} width="100%" fluid rounded/>
+                                                        </Modal.Body>
+                                                    </Modal>
+                                                    {form}
+                                                    <Button
+                                                        disabled={showCorrect}
+                                                        onClick={() => setShowPhoto(true)}
+                                                        className={window.innerWidth <= 320 ? "mr-2" : "mr-3"}
+                                                    >
+                                                        Изображение
+                                                    </Button>
+                                                </>
+                                            )
+                                        } else {
+                                            return(form)
+                                        }
                                     }
 
                                     return null;
