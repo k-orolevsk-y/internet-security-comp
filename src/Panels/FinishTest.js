@@ -4,9 +4,9 @@ import {Container, Row, Col, ProgressBar, OverlayTrigger, Tooltip, Card, Button}
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import TestsAPI from "../API/TestsAPI";
 
 import "../Styles/FinishTest.css";
+import TestsAPI from "../API/TestsAPI";
 
 
 const FinishTest = () => {
@@ -30,6 +30,11 @@ const FinishTest = () => {
         const test = TestsAPI.getTest(parseInt(params.testId));
         if(test === null) {
             history.push("/");
+            return;
+        }
+
+        if(testStorageInfo.questionsCompleted.length < test.questions.length) {
+            history.push("/test/1");
             return;
         }
 

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { useParams, useHistory } from "react-router-dom";
 import {Form, Container, Button, Alert, Row, Col, Image, Modal} from "react-bootstrap";
-import TestsAPI from "../API/TestsAPI";
+import {Icon32ErrorCircleOutline} from "@vkontakte/icons";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
-import "../Styles/Tests.css";
+import TestsAPI from "../API/TestsAPI";
 
 const Tests = () => {
     const [test, setTest] = useState({});
@@ -137,6 +137,7 @@ const Tests = () => {
                                 </h2>
                                 {selectedAnswer === -2 &&
                                 <Alert variant="danger" style={{ width: "60%", marginLeft: "20%" }}>
+                                    <Icon32ErrorCircleOutline style={{ margin: "0 auto" }}/>
                                     Необходимо выбрать<br/>правильный ответ!
                                 </Alert>
                                 }
@@ -243,7 +244,7 @@ const Tests = () => {
                                         }, 1250);
                                     }}
                                 >
-                                    Отправить
+                                    {test.questions.length === (question+1) ? "Завершить тест" : "Ответить"}
                                 </Button>
                             </div>}
                     </Container>

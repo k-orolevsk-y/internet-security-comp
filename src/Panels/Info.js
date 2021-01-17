@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Col, Container, Row, Breadcrumb} from "react-bootstrap";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -11,7 +11,6 @@ const Info = () => {
     const [info, setInfo] = useState(<></>);
 
     let params = useParams();
-    let history = useHistory();
 
     useEffect(() => {
         document.title = "Безопасность | Изучение информации"

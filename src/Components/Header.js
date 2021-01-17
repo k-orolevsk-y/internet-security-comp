@@ -27,10 +27,10 @@ const Header = () => {
                         window.innerWidth >= 961 &&
                         <Nav>
                             <Nav.Item>
-                                <Nav.Link active={false} role="link" target="_blank" href="https://vk.com/security"><Icon28LogoVkOutline/></Nav.Link>
+                                <Nav.Link active={false} role="link" target="_blank" href="https://vk.com/security"><Icon28LogoVkOutline width={28} height={28}/></Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link active={false} target="_blank" href="https://ru-ru.facebook.com/help/instagram/369001149843369"><Icon28LogoInstagram/></Nav.Link>
+                                <Nav.Link active={false} target="_blank" href="https://ru-ru.facebook.com/help/instagram/369001149843369"><Icon28LogoInstagram width={28} height={28}/></Nav.Link>
                             </Nav.Item>
                         </Nav>
                     }
