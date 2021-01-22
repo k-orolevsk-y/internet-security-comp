@@ -23,7 +23,7 @@ const FinishTest = () => {
             history.push("/");
             return;
         } else if(testStorageInfo.passed) {
-            history.push("/test/1");
+            history.push("/test/"+params.testId.toString());
             return;
         }
 
@@ -34,7 +34,7 @@ const FinishTest = () => {
         }
 
         if(testStorageInfo.questionsCompleted.length < test.questions.length) {
-            history.push("/test/1");
+            history.push("/test/"+params.testId.toString());
             return;
         }
 
@@ -94,7 +94,7 @@ const FinishTest = () => {
                                     localStorage.setItem("test-"+params.testId.toString(), JSON.stringify(testStorageInfo));
                                 }
 
-                                history.push('/info/'+testInfo.test.infoId);
+                                history.push('/choiceInfo/');
                             }}
                         >
                             Перейти к изучению информации

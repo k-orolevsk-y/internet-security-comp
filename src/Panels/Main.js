@@ -17,7 +17,7 @@ const Main = () => {
             if(testStorage === null) history.push('/test/1#greeting');
             else {
                 if(!testStorage.passed) history.push('/test/1#greeting');
-                else history.push('/info/1');
+                else history.push('/choiceInfo');
             }
 
             return;
@@ -26,7 +26,7 @@ const Main = () => {
             if(testStorage === null) history.push('/test/2#greeting');
             else {
                 if(!testStorage.passed) history.push('/test/2#greeting');
-                else history.push('/info/1');
+                else history.push('/choiceInfo');
             }
 
             return;

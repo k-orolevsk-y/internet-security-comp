@@ -10,6 +10,7 @@ import Main from "./Panels/Main";
 import Advice from "./Panels/Advice";
 import Mistakes from "./Panels/Mistakes";
 import Info from "./Panels/Info";
+import ChoiceInfo from "./Panels/ChoiceInfo";
 import Tests from "./Panels/Tests";
 import FinishTest from "./Panels/FinishTest";
 
@@ -32,6 +33,9 @@ const App = () => {
                    </Route>
                    <Route path="/info/:infoId">
                        <Info/>
+                   </Route>
+                   <Route path="/choiceInfo">
+                       <ChoiceInfo/>
                    </Route>
                    <Route path="/test/:testId/:question?">
                        <Tests/>

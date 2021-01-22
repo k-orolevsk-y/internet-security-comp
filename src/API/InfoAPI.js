@@ -4,6 +4,7 @@ import {Container} from "react-bootstrap";
 class InfoAPI {
     static info = {
         1: {
+            name: "Введение в интернетную безопасность",
             html:
                 <>
                     <h1 className="text-center">Введение в интернетную безопасность</h1>
@@ -12,7 +13,7 @@ class InfoAPI {
                     </Container>
                 </>,
             breadcrumb: [
-                [ "Безопасность" ],
+                [ "Категории", "/choiceInfo" ],
                 [ "Введение в безопасность" ]
             ]
         }

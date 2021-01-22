@@ -91,7 +91,7 @@ const Tests = () => {
                             </Button>
                             <Button
                                 onClick={() => {
-                                    history.push('/info/1');
+                                    history.push('/choiceInfo');
                                 }}
                                 size={window.innerWidth >= 961 ? "lg" : "sm" }
                                 style={ window.innerWidth >= 961 ? { width: "15%", marginLeft: "3%" } : { marginLeft: "3%" }}
@@ -119,7 +119,7 @@ const Tests = () => {
             :
                 window.location.hash === "#greeting" && ( typeof(test.greeting) != "undefined" && test.greeting !== null ) ?
                     <Container className="text-center">
-                        <h2 className="mb-4" dangerouslySetInnerHTML={{__html: test.greeting}}></h2>
+                        <h2 className="mb-4" dangerouslySetInnerHTML={{__html: test.greeting}}/>
                         <Button
                             onClick={() =>
                                 history.push('/test/'+params.testId.toString())
