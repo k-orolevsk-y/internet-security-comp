@@ -173,26 +173,25 @@ const Tests = () => {
                                             </Form>);
 
                                         if(quest.img !== undefined) {
-                                            return(
-                                                <>
-                                                    <Modal show={showPhoto} onHide={() => setShowPhoto(false)}>
+                                            return([
+                                                    <Modal show={showPhoto} onHide={() => setShowPhoto(false)} key={0}>
                                                         <Modal.Header closeButton>
                                                             Изображение связанное с вопросом
                                                         </Modal.Header>
                                                         <Modal.Body>
                                                             <Image src={quest.img} width="100%" fluid rounded/>
                                                         </Modal.Body>
-                                                    </Modal>
-                                                    {form}
+                                                    </Modal>,
+                                                    form,
                                                     <Button
                                                         disabled={showCorrect}
                                                         onClick={() => setShowPhoto(true)}
                                                         className={window.innerWidth <= 320 ? "mr-2" : "mr-3"}
+                                                        key={1}
                                                     >
                                                         Изображение
                                                     </Button>
-                                                </>
-                                            )
+                                                ])
                                         } else {
                                             return(form)
                                         }
