@@ -9,7 +9,7 @@ const Header = () => {
 
     return(
         <header>
-            <Navbar collapseOnSelect variant="dark" bg="primary" expand="lg" sticky="top">
+            <Navbar collapseOnSelect variant="dark" bg="primary" expand="lg" fixed="top">
                 <Container>
                     <Navbar.Brand href="/"><Icon28PincodeLockOutline/>Безопасность</Navbar.Brand>
                     <Navbar.Toggle aria-controls="collapse"/>

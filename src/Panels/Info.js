@@ -54,7 +54,7 @@ const Info = () => {
                         </Col>
                     </Row>
                 </Container>
-                : info.html
+                : (window.innerWidth >= 961 ? info.html : info.htmlMobile)
             }
         </main>,
         <Footer key={2}/>

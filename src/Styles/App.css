@@ -14,3 +14,7 @@ body {
 .btn-primary:hover {
     background: #343434;
 }
+
+a {
+    text-decoration: none!important;
+}
