@@ -1,31 +1,19 @@
 import React from "react";
 import {Container, Row, Col, Image, ListGroup} from "react-bootstrap";
 
-import computerSecret from "../Images/computer_secret.jpg";
-import anonim from "../Images/anonim.jpg";
-import otherPeoples from "../Images/other_peoples.png";
-import hacker from "../Images/hacker.jpg";
-import parentWithBaby from "../Images/parentwithbaby.png";
-import pc from "../Images/pc.jpg";
-import geo from "../Images/geo.png";
-import person from "../Images/person.png";
-import fakeSite from "../Images/fake_site.jpg";
-import womanPc from "../Images/woman_pc.webp";
-import buyers from "../Images/buyers.jpg";
-import securitySite from "../Images/security_site.webp";
-import pc2 from "../Images/pc2.jpg"
-import pc3 from "../Images/pc3.jpg"
-import support from "../Images/support.png"
-
 class InfoAPI {
     static info = {
         1: {
             name: "Введение в интернетную безопасность",
             whom: "all",
+            breadcrumb: [
+                ["Категории", "/choiceInfo"],
+                ["Введение в безопасность"]
+            ],
             html:
                 <>
                     <Container>
-                        <h1 className="text-center">Введение в интернетную безопасность</h1>
+                        <h1>Введение в интернетную безопасность</h1>
                         <p>Эксперты утверждают, что в этом смысле виртуальный мир не отличается от реального: там тоже есть сверстники, которые устраивают травлю, плохие компании, маньяки и мошенники. Маленьких детей не отпускают на улицу одних, а у подростков всегда узнают, где они, с кем, чем занимаются и когда будут дома. Такой же уровень заботы нужен и в Cети. Разница только в том, что происходящее на улице родители хорошо себе представляют, а вот ловушки, в которые можно попасть в интернете, многие пока еще не изучили до конца. И все же ребенка нельзя держать взаперти, не выпуская ни за порог, ни в Cеть.</p>
                         <a href="#rule1"><h4 className="text-center">Давайте запомним 15 главных правил в интернете</h4></a>
                         <i style={{ color: "gray", display: "flex", justifyContent: "center" }}>(нажмите на надпись)</i>
@@ -45,7 +33,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col xs={true}>
-                                <Image src={computerSecret} fluid rounded/>
+                                <Image src={this.getImage("computer_secret.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -65,7 +53,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={anonim} fluid rounded/>
+                                <Image src={this.getImage("anonim.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -87,7 +75,7 @@ class InfoAPI {
                                     Тех, кто пытается вас как-то задеть и обидеть (так называемых троллей), нужно просто игнорировать.</p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={otherPeoples} fluid rounded/>
+                                <Image src={this.getImage("other_peoples.png")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -112,7 +100,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={hacker} fluid rounded/>
+                                <Image src={this.getImage("hacker.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -133,7 +121,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={parentWithBaby} fluid rounded/>
+                                <Image src={this.getImage("parentwithbaby.png")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -152,7 +140,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={pc} fluid rounded/>
+                                <Image src={this.getImage("pc.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -173,7 +161,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={geo} fluid rounded/>
+                                <Image src={this.getImage("geo.png")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -192,7 +180,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={person} fluid rounded/>
+                                <Image src={this.getImage("person.png")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -213,7 +201,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={fakeSite} fluid rounded/>
+                                <Image src={this.getImage("fake_site.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -232,7 +220,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={womanPc} fluid rounded/>
+                                <Image src={this.getImage("woman_pc.webp")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -255,7 +243,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={buyers} fluid rounded/>
+                                <Image src={this.getImage("buyers.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -282,7 +270,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={securitySite} fluid rounded/>
+                                <Image src={this.getImage("security_site.webp")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -308,7 +296,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={pc3} fluid rounded/>
+                                <Image src={this.getImage("pc3.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -327,7 +315,7 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col className="mt-5">
-                                <Image src={pc2} fluid rounded/>
+                                <Image src={this.getImage("pc2.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -346,14 +334,14 @@ class InfoAPI {
                                 </p>
                             </Col>
                             <Col>
-                                <Image src={support} fluid rounded/>
+                                <Image src={this.getImage("support.png")} fluid rounded/>
                             </Col>
                         </Row>
                     </Container>
                 </>,
             htmlMobile:
                 <>
-                    <h1 className="text-center" style={{ marginTop: "20%" }}>Введение в интернетную безопасность</h1>
+                    <h1 style={{ marginTop: "20%" }}>Введение в интернетную безопасность</h1>
                     <Container style={{ marginBottom: "30%" }}>
                         <p>Эксперты утверждают, что в этом смысле виртуальный мир не отличается от реального: там тоже есть сверстники, которые устраивают травлю, плохие компании, маньяки и мошенники. Маленьких детей не отпускают на улицу одних, а у подростков всегда узнают, где они, с кем, чем занимаются и когда будут дома. Такой же уровень заботы нужен и в Cети. Разница только в том, что происходящее на улице родители хорошо себе представляют, а вот ловушки, в которые можно попасть в интернете, многие пока еще не изучили до конца. И все же ребенка нельзя держать взаперти, не выпуская ни за порог, ни в Cеть.</p>
                         <a href="#rule1"><h4 className="text-center">Давайте запомним 15 главных правил в интернете</h4></a>
@@ -376,7 +364,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col>
-                                <Image src={computerSecret} fluid rounded/>
+                                <Image src={this.getImage("computer_secret.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -398,7 +386,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={anonim} fluid rounded/>
+                                <Image src={this.getImage("anonim.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -422,7 +410,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={otherPeoples} fluid rounded/>
+                                <Image src={this.getImage("other_peoples.png")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -449,7 +437,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={hacker} fluid rounded/>
+                                <Image src={this.getImage("hacker.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -472,7 +460,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={parentWithBaby} fluid rounded/>
+                                <Image src={this.getImage("parentwithbaby.png")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -493,7 +481,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={pc} fluid rounded/>
+                                <Image src={this.getImage("pc.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -516,7 +504,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={geo} fluid rounded/>
+                                <Image src={this.getImage("geo.png")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -537,7 +525,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={person} fluid rounded/>
+                                <Image src={this.getImage("person.png")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -560,7 +548,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={fakeSite} fluid rounded/>
+                                <Image src={this.getImage("fake_site.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -581,7 +569,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={womanPc} fluid rounded/>
+                                <Image src={this.getImage("woman_pc.webp")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -606,7 +594,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={buyers} fluid rounded/>
+                                <Image src={this.getImage("buyers.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -635,7 +623,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={securitySite} fluid rounded/>
+                                <Image src={this.getImage("security_site.webp")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -663,7 +651,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={pc3} fluid rounded/>
+                                <Image src={this.getImage("pc3.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -684,7 +672,7 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col className="mt-5">
-                                <Image src={pc2} fluid rounded/>
+                                <Image src={this.getImage("pc2.jpg")} fluid rounded/>
                             </Col>
                         </Row>
 
@@ -705,15 +693,262 @@ class InfoAPI {
                         </Row>
                         <Row>
                             <Col>
-                                <Image src={support} fluid rounded/>
+                                <Image src={this.getImage("support.png")} fluid rounded/>
                             </Col>
                         </Row>
                     </Container>
                 </>,
+        },
+        2: {
+            name: "Кража идентичности",
+            whom: "baby",
             breadcrumb: [
                 ["Категории", "/choiceInfo"],
-                ["Введение в безопасность"]
-            ]
+                ["Кража идентичности"]
+            ],
+            html:
+                <>
+                    <Container style={ window.innerWidth < 961 ? { marginTop: "10rem" } : {} }>
+                        <Row>
+                            <Col>
+                                <h2>Кража идентичности.</h2>
+                                <p>
+                                    Кража идентичности стала самой растущей разновидностью преступлений в Соединенных Штатах. Например, в 2013 году каждые две минуты там совершалось преступление, связанное с кражей идентичности. В результате за год пострадало около 13 миллионов человек. Мошенники используют украденную информацию по-разному (подделка банковских карт, кража медицинских страховок и т.д.).
+                                    О краже идентичности в социальных сетях с целью создания фальшивых аккаунтов мы начали говорить около трех лет назад.. Упоминалась история профессора из Канады, фотоматериалы которого были использованы для знакомства с женщинами в мошеннических целях (по-английски этот вид мошенничества называется romantic scam или catfishing . В русском языке используется транслитерация последнего – катфишинг, а мошенники – это катфишеры).
+                                </p>
+                                <br/><br/><br/><br/>
+                                <h3>Давайте прочитаем историю Алисы, которая столкнулась с кражей идентичности.</h3>
+                            </Col>
+                        </Row>
+                    </Container>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <p>
+                                    Алисе 13 лет. У Алисы мама, Татьяна Веселова - актриса в их городском драматическом театре. Она очень красивая и играет главные роли в разных спектаклях. Алиса очень гордится своей мамой и часто размещает ее фотографии на своей странице Вконтакте, где мама одна, и где мама с Алисой. Одноклассники даже завидуют Алисе, что ее маму так хорошо знают любители театра в их городе.
+                                </p>
+                                <Image
+                                    src={this.getImage("identity1.png")}
+                                    width="100%"
+                                    fluid rounded
+                                />
+                                <p>
+                                    Однажды Алиса получила письмо от незнакомого человека, письмо было на
+                                    английском языке. С помощью учителя Алиса перевела письмо, и не могла понять, что в нем написано. Автор письма, как оказалось, живет в Австралии. Он обвинял Алисину маму в том, что она получила от него крупную сумму денег, а потом перестала ему писать. Алиса показала письмо маме, мама тоже не могла понять, что происходит.
+                                </p>
+                                <Image
+                                    src={this.getImage("identity2.png")}
+                                    width="100%"
+                                    fluid rounded
+                                />
+                                <p>
+                                    Что же случилось? Мошенники воспользовались фотографией Алисиной мамы и Алисы и создали фальшивый аккаунт в сети Facebook с именем Фрэн Кемпс, и написали,
+                                    что она ищет друга и отца для своей дочери. Фотография Алисиной мамы понравилась австралийцу, он написал письмо, ему ответили, началась переписка. Но на самом-то деле какой-то мошенник писал письма от имени Френ, а фотографии были Алисиной мамы и Алисы. Потом Фрэн написала, что дочь сильно заболела, и ей требуется дорогостоящее лечение. Австралиец хотел помочь, и отправил деньги через международную систему Western Union. После этого письма австралийцу стали приходить все реже и реже, а потом и вовсе перестали.
+                                </p>
+                                <Image
+                                    src={this.getImage("identity3.png")}
+                                    width="100%"
+                                    fluid rounded
+                                />
+                                <p>
+                                    Как австралиец нашел Алису? Кирилл объяснил, что он воспользовался программой обратного поиска изображений Google. Он поочередно загружал в программу те фотографии, что он скопировал с Алисиной странички на свой компьютер, и таким образом и нашел ее.
+                                </p>
+                                <Image
+                                    src={this.getImage("identity4.png")}
+                                    width="100%"
+                                    fluid rounded
+                                />
+                                <p>
+                                    Что происходило дальше? Кирилл обратился в сеть Facebook, но ему не могли помочь, потому что фальшивый аккаунт мошенники уже закрыли. Что сделала Алиса? Она по совету Кирилла пошла поучиться на курсы по безопасному поведению в Интернете, которые организовали друзья Кирилла. Что она узнала про размещение фотографий в сети? Им рассказали, что если уж так хочется размещать личные фотографии в сети, их надо защищать водяными знаками. В Интернете существуют программы (watermarks, или, например, водяной знак.рф), которые отставляют на фотографии знак. С таким знаком фотографию сложнее использовать, выдавая за свою. Водяной знак можно удалить, но след удаления может быть заметен.
+                                </p>
+                                <Image
+                                    src={this.getImage("identity5.png")}
+                                    width="100%"
+                                    fluid rounded
+                                />
+                            </Col>
+                        </Row>
+                    </Container>
+                </>
+        },
+        3: {
+            name: "Покупки в интернете",
+            whom: "all",
+            breadcrumb: [
+                ["Категории", "/choiceInfo"],
+                ["Покупки в интернете"]
+            ],
+            html:
+                <>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <h2>Покупки в интернете.</h2>
+                                <h5>Контекстная реклама.</h5>
+                                <p>
+                                    Контекстная реклама - это текстовые объявления, которые показываются пользователям по запросам, если эти настройки рекламодатель добавил в настройки рекламной компании.
+                                </p>
+                                <Image
+                                    src={this.getImage("rekl.jpg")}
+                                    style={{
+                                        display: "block",
+                                        margin: "15px auto"
+                                    }}
+                                    fluid rounded
+                                />
+                                <p>
+                                    Поисковая контекстная реклама показывается в результатах поиска в крупнейших поисковых системах (Яндексе, Google, Рамблере, Поиск@mail.ru и др.) или по сайту (так называемые вертикальные поиски) в том случае, если запрос пользователя совпадает с ключевыми словами контекстного объявления.
+                                </p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <p>
+                                    Поисковая контекстная реклама показывается в результатах поиска в крупнейших поисковых системах (Яндексе [<a href="http://www.yandex.ru/">http://www.yandex.ru/</a>], Google [<a href="http://www.google.ru/">http://www.google.ru/</a>], Рамблере [<a href="http://www.rambler.ru/">http://www.rambler.ru/</a>], Поиск@mail.ru [<a href="http://go.mail.ru/">http://go.mail.ru/</a>] и др.) или по сайту (так называемые вертикальные поиски) в том случае, если запрос пользователя совпадает с ключевыми словами контекстного объявления.
+
+                                    Что такое вертикальный поиск? Существует большой сегмент специализированных сайтов, в структуре которых поиск играет важную роль: top100.rambler.ru, auto.rambler.ru, automobile.ru, go.km.ru и многие другие. Поиск на таких ресурсах происходит по конкретным тематикам (а не по всему интернету, как, например, в Яндексе), то есть вертикалям, например, по автомобилям, недвижимости или мобильным устройствам.
+                                </p>
+                            </Col>
+                            <Col>
+                                <Image
+                                    src={this.getImage("rekl2.png")}
+                                    style={{
+                                        display: "block",
+                                        margin: "5px auto"
+                                    }}
+                                    fluid rounded
+                                />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <h2 className="text-center">Как выглядит контекстная реклама?</h2>
+                                <Image
+                                    src={this.getImage("rekl3.png")}
+                                    style={{
+                                        display: "block",
+                                        margin: "5px auto"
+                                    }}
+                                    fluid rounded
+                                />
+                                <br/><br/><br/><br/>
+                            </Col>
+                        </Row>
+                        <h2 className="text-center">Признаки добросовестного магазина:</h2>
+                        <Row>
+                            <Col>
+                                <p
+                                    style={{
+                                        color: "#242424",
+                                        fontSize: "18px"
+                                    }}
+                                >
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Наличие обсуждения товаров<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Указаны действующие контакты для связи: электронная почта, телефон, адрес, реквизиты<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Уникальный дизайн, товарный знак<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Более одного года на рынке<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Реквизиты есть в базе ОГРН
+                                </p>
+                            </Col>
+                            <Col>
+                                <Image
+                                    src={this.getImage("shopping.jpg")}
+                                    style={{
+                                        display: "block",
+                                        margin: "5px auto"
+                                    }}
+                                    fluid rounded
+                                />
+                            </Col>
+                        </Row>
+                    </Container>
+                </>,
+            htmlMobile:
+                <>
+                    <Container style={{ marginTop: "10rem" }}>
+                        <Row>
+                            <Col>
+                                <h2>Покупки в интернете.</h2>
+                                <h5>Контекстная реклама.</h5>
+                                <p>
+                                    Контекстная реклама - это текстовые объявления, которые показываются пользователям по запросам, если эти настройки рекламодатель добавил в настройки рекламной компании.
+                                </p>
+                                <Image
+                                    src={this.getImage("rekl.jpg")}
+                                    style={{
+                                        display: "block",
+                                        margin: "15px auto"
+                                    }}
+                                    fluid rounded
+                                />
+                                <p>
+                                    Поисковая контекстная реклама показывается в результатах поиска в крупнейших поисковых системах (Яндексе, Google, Рамблере, Поиск@mail.ru и др.) или по сайту (так называемые вертикальные поиски) в том случае, если запрос пользователя совпадает с ключевыми словами контекстного объявления.
+                                </p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <p>
+                                    Поисковая контекстная реклама показывается в результатах поиска в крупнейших поисковых системах (Яндексе [<a href="http://www.yandex.ru/">http://www.yandex.ru/</a>], Google [<a href="http://www.google.ru/">http://www.google.ru/</a>], Рамблере [<a href="http://www.rambler.ru/">http://www.rambler.ru/</a>], Поиск@mail.ru [<a href="http://go.mail.ru/">http://go.mail.ru/</a>] и др.) или по сайту (так называемые вертикальные поиски) в том случае, если запрос пользователя совпадает с ключевыми словами контекстного объявления.
+
+                                    Что такое вертикальный поиск? Существует большой сегмент специализированных сайтов, в структуре которых поиск играет важную роль: top100.rambler.ru, auto.rambler.ru, automobile.ru, go.km.ru и многие другие. Поиск на таких ресурсах происходит по конкретным тематикам (а не по всему интернету, как, например, в Яндексе), то есть вертикалям, например, по автомобилям, недвижимости или мобильным устройствам.
+                                </p>
+                                <Image
+                                    src={this.getImage("rekl2.png")}
+                                    style={{
+                                        display: "block",
+                                        margin: "5px auto"
+                                    }}
+                                    fluid rounded
+                                />
+                                <h2 className="text-center">Как выглядит контекстная реклама?</h2>
+                                <Image
+                                    src={this.getImage("rekl3.png")}
+                                    style={{
+                                        display: "block",
+                                        margin: "5px auto"
+                                    }}
+                                    fluid rounded
+                                />
+                                <br/><br/><br/><br/>
+                            </Col>
+                        </Row>
+                        <h2 className="text-center">Признаки добросовестного магазина:</h2>
+                        <Row>
+                            <Col>
+                                <p
+                                    style={{
+                                        color: "#242424",
+                                        fontSize: "18px"
+                                    }}
+                                >
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Наличие обсуждения товаров<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Указаны действующие контакты для связи: электронная почта, телефон, адрес, реквизиты<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Уникальный дизайн, товарный знак<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Более одного года на рынке<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Реквизиты есть в базе ОГРН
+                                </p>
+                                <Image
+                                    src={this.getImage("shopping.jpg")}
+                                    style={{
+                                        display: "block",
+                                        margin: "5px auto"
+                                    }}
+                                    fluid rounded
+                                />
+                            </Col>
+                        </Row>
+                    </Container>
+                </>
+        }
+    }
+
+    static getImage(img) {
+        try {
+            let image = require("../Images/"+img.toString()).default;
+            return image;
+        } catch(e) {
+            return null;
         }
     }
 

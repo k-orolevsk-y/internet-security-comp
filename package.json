@@ -1,6 +1,11 @@
 {
-  "name": "konk",
+  "name": "Internet_Security_Comp",
   "version": "0.1.0",
+  "author": {
+    "name": "Kirill Korolevsky",
+    "email": "i@korolevsky.me",
+    "url": "https://korolevsky.me/"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",

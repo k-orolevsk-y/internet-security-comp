@@ -8,7 +8,7 @@ import "../Styles/Header.css";
 const Header = () => {
 
     return(
-        <header>
+        <header style={{ marginBottom: "8.5rem" }}>
             <Navbar collapseOnSelect variant="dark" bg="primary" expand="lg" fixed="top">
                 <Container>
                     <Navbar.Brand href="/"><Icon28PincodeLockOutline/>Безопасность</Navbar.Brand>
