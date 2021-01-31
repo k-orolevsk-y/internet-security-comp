@@ -91,7 +91,7 @@ const Tests = () => {
                             </Button>
                             <Button
                                 onClick={() => {
-                                    history.push('/choiceInfo');
+                                    history.push('/choiceTest');
                                 }}
                                 size={window.innerWidth >= 961 ? "lg" : "sm" }
                                 style={ window.innerWidth >= 961 ? { width: "15%", marginLeft: "3%" } : { marginLeft: "3%" }}

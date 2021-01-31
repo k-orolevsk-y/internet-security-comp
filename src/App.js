@@ -11,6 +11,7 @@ import Info from "./Panels/Info";
 import ChoiceInfo from "./Panels/ChoiceInfo";
 import Tests from "./Panels/Tests";
 import FinishTest from "./Panels/FinishTest";
+import ChoiceTest from "./Panels/ChoiceTest";
 
 import "bootswatch/dist/lux/bootstrap.css";
 import "./Styles/App.css";
@@ -33,6 +34,9 @@ const App = () => {
                    </Route>
                    <Route path="/finishTest/:testId">
                        <FinishTest/>
+                   </Route>
+                   <Route path="/choiceTest">
+                        <ChoiceTest/>
                    </Route>
 
                    <Redirect from='*' to='/' />

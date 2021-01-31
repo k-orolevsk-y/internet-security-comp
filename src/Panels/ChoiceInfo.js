@@ -14,7 +14,7 @@ const ChoiceInfo = () => {
     let history = useHistory();
 
     useEffect(() => {
-        document.title = "Безопасность | Информация"
+        document.title = "Безопасность | Статьи"
 
         let user = localStorage.getItem("user");
         if(user == null) {
@@ -36,7 +36,7 @@ const ChoiceInfo = () => {
                         padding: "1% 0"
                     }}
                 >
-                    <h1 className="text-center mb-5" style={ window.innerWidth < 961 ? { fontSize: "18px" } : {}}>Выберите интересующую категорию:</h1>
+                    <h1 className="text-center mb-5" style={ window.innerWidth < 961 ? { fontSize: "18px" } : {}}>Выберите интересующую статью:</h1>
                     <Container>
                         <Row>
                             { window.innerWidth >= 961 && <Col/> /* specially to make the list look normal on pc */ }
