@@ -7,8 +7,6 @@ import {
 } from "react-router-dom";
 
 import Main from "./Panels/Main";
-import Advice from "./Panels/Advice";
-import Mistakes from "./Panels/Mistakes";
 import Info from "./Panels/Info";
 import ChoiceInfo from "./Panels/ChoiceInfo";
 import Tests from "./Panels/Tests";
@@ -18,18 +16,11 @@ import "bootswatch/dist/lux/bootstrap.css";
 import "./Styles/App.css";
 
 const App = () => {
-
        return (
            <Router>
                <Switch>
                    <Route exact path="/">
                        <Main/>
-                   </Route>
-                   <Route path="/advice">
-                       <Advice/>
-                   </Route>
-                   <Route path="/mistakes">
-                       <Mistakes/>
                    </Route>
                    <Route path="/info/:infoId">
                        <Info/>

@@ -1,7 +1,6 @@
 import {Container, Nav, Navbar} from "react-bootstrap";
 import React from "react";
 import {Icon28LogoInstagram, Icon28LogoVkOutline, Icon28PincodeLockOutline} from "@vkontakte/icons";
-import {NavLink} from "react-router-dom";
 
 import "../Styles/Header.css";
 
@@ -16,10 +15,7 @@ const Header = () => {
                     <Navbar.Collapse id="collapse">
                         <Nav className="mx-auto order-0 text-center">
                             <Nav.Item className="link-header">
-                                <Nav.Link active={window.location.href.split("/").pop() === "active"} as={NavLink} to="/advice">Советы</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item className="link-header">
-                                <Nav.Link active={window.location.href.split("/").pop() === "mistakes"} as={NavLink} to="/mistakes">Ошибки</Nav.Link>
+                                <Nav.Link active={false} href="tel:8-800-2000-122">Персональная помощь</Nav.Link>
                             </Nav.Item>
                         </Nav>
                     </Navbar.Collapse>

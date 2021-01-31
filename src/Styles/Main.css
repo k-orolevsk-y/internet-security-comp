@@ -1,5 +1,5 @@
 main {
-    margin-top: 10%;
+    margin-top: 15%;
 }
 .containerTitle {
     text-align: center;
@@ -60,14 +60,12 @@ main {
     border-radius: 35px;
     margin-right: 1.5%;
     width: 220px;
-    margin-top: 30px;
 }
 
 .nextTextContainer .btn-2 {
     border-radius: 35px;
     margin-left: 1.5%;
     width: 220px;
-    margin-top: 30px;
 }
 
 @media screen and (max-width: 768px) {

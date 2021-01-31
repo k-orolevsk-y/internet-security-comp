@@ -14,7 +14,6 @@ const Info = () => {
     let params = useParams();
 
     useEffect(() => {
-        document.title = "Безопасность | Изучение информации"
 
         const infoResponse = InfoAPI.getInfo(parseInt(params.infoId.toString()));
         if(infoResponse != null) {
@@ -22,6 +21,8 @@ const Info = () => {
         } else {
             setInfo(null);
         }
+
+        document.title = `Безопасность | ${infoResponse?.name}`
     }, [params]);
 
     return([
@@ -31,8 +32,11 @@ const Info = () => {
             {info.breadcrumb.map((item, key) => {
                 return <Breadcrumb.Item
                     key={key}
-                    active={true}
-                    style={{ color: "black" }}
+                    active={item[1] === undefined}
+                    style={{
+                        color: "black",
+                        cursor: "default"
+                    }}
                     onClick={() => {
                         if(item[1] === undefined) return null;
 

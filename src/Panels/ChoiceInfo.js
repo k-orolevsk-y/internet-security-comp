@@ -31,33 +31,38 @@ const ChoiceInfo = () => {
         <Header key={0}/>,
         <main key={1}>
             {info &&
-                <>
-                    <h1 className="text-center mb-3" style={ window.innerWidth < 961 ? { fontSize: "18px" } : {}}>Выберите интересующую категорию:</h1>
+                <div
+                    style={{
+                        padding: "1% 0"
+                    }}
+                >
+                    <h1 className="text-center mb-5" style={ window.innerWidth < 961 ? { fontSize: "18px" } : {}}>Выберите интересующую категорию:</h1>
                     <Container>
                         <Row>
                             { window.innerWidth >= 961 && <Col/> /* specially to make the list look normal on pc */ }
                             <Col>
                                 <ListGroup>
                                     {Object.keys(info).map((key, index) => {
-                                        if(info[key].whom !== "all" && info[key].whom !== user.toString()) return null;
+                                        if(info[key].whom !== "all" && info[key].whom !== user.toString()) {
+                                            key-=1;
+                                            return null;
+                                        }
 
                                         return(
-                                            <>
                                                 <ListGroup.Item
                                                     key={index}
                                                     as="button"
                                                     active={true}
-                                                    className="mb-1 text-left"
+                                                    className="mb-3 text-center"
                                                     style={{
-                                                        borderRadius: "40px"
+                                                        borderRadius: "20px"
                                                     }}
                                                     onClick={() => {
                                                         history.push('/info/'+key)
                                                     }}
                                                 >
-                                                    {key}. {info[key].name}
+                                                    {info[key].name}
                                                 </ListGroup.Item>
-                                            </>
                                         );
                                     })}
                                 </ListGroup>
@@ -65,7 +70,7 @@ const ChoiceInfo = () => {
                             { window.innerWidth >= 961 && <Col/> }
                         </Row>
                     </Container>
-                </>
+                </div>
             }
         </main>,
         <Footer key={2}/>

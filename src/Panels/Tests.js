@@ -131,7 +131,7 @@ const Tests = () => {
                     :
                     <Container>
                         {test.questions && <div className="text-center">
-                                <h2 className="mb-4">
+                                <h2 className="mb-4" style={window.innerWidth < 961 ? { fontSize: "16px" } : {}}>
                                     {test.questions[question].title}
                                     {test.questions[question].img && <i style={{ fontSize: "16px", color: "gray" }}><br/>(У данного вопроса есть изображение)</i>}
                                 </h2>
