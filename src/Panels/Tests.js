@@ -84,7 +84,7 @@ const Tests = () => {
                                     history.push('/test/'+params.testId.toString()+"#greeting");
                                     setTestPassed(false);
                                 }}
-                                size={window.innerWidth >= 961 ? "lg" : "sm" }
+                                size="lg"
                                 style={window.innerWidth >= 961 ? { width: "15%" } : {}}
                             >
                                 Да
@@ -93,7 +93,7 @@ const Tests = () => {
                                 onClick={() => {
                                     history.push('/choiceTest');
                                 }}
-                                size={window.innerWidth >= 961 ? "lg" : "sm" }
+                                size="lg"
                                 style={ window.innerWidth >= 961 ? { width: "15%", marginLeft: "3%" } : { marginLeft: "3%" }}
                             >
                                 Нет
@@ -150,6 +150,7 @@ const Tests = () => {
                                                         if(key2 === quest.rightAnswer) {
                                                             return(
                                                                 <Form.Check
+                                                                    id={"test-"+key2.toString()}
                                                                     name={"test-"+question.toString()}
                                                                     key={key2}
                                                                     type="radio"
@@ -160,6 +161,7 @@ const Tests = () => {
                                                         } else {
                                                             return(
                                                                 <Form.Check
+                                                                    id={"test-"+key2.toString()}
                                                                     name={"test-"+question.toString()}
                                                                     key={key2}
                                                                     type="radio"
