@@ -19,10 +19,10 @@ const Header = () => {
                                 <Nav.Link as={NavLink} to="/choiceTest">Проверь себя</Nav.Link>
                             </Nav.Item>
                             <Nav.Item className="link-header">
-                                <Nav.Link active={false} href="tel:8-800-2000-122">Персональная помощь</Nav.Link>
+                                <Nav.Link as={NavLink} to="/choiceInfo">Статьи</Nav.Link>
                             </Nav.Item>
                             <Nav.Item className="link-header">
-                                <Nav.Link as={NavLink} to="/choiceInfo">Статьи</Nav.Link>
+                                <Nav.Link active={false} href="tel:8-800-2000-122">Персональная помощь</Nav.Link>
                             </Nav.Item>
                         </Nav>
                     </Navbar.Collapse>

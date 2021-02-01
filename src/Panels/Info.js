@@ -22,7 +22,7 @@ const Info = () => {
             setInfo(null);
         }
 
-        document.title = `Безопасность | ${infoResponse?.name}`
+        document.title = `Безопасность | ${infoResponse?.name ?? "Статьи"}`
     }, [params]);
 
     return([
