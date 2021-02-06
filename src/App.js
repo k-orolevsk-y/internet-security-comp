@@ -39,7 +39,16 @@ const App = () => {
                         <ChoiceTest/>
                    </Route>
 
-                   <Redirect from='*' to='/' />
+                   <Route
+                       path="/clearData"
+                       render={() => {
+                            localStorage.clear();
+                            console.log("❗️ Local storage cleared!");
+
+                            return <Redirect to="/"/>
+                       }}
+                   />
+                   <Redirect from='*' to='/'/>
                </Switch>
            </Router>
        );

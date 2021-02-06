@@ -18,3 +18,7 @@ body {
 a {
     text-decoration: none!important;
 }
+
+.modal-content {
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}

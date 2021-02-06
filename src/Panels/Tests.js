@@ -150,7 +150,7 @@ const Tests = () => {
                                                         if(key2 === quest.rightAnswer) {
                                                             return(
                                                                 <Form.Check
-                                                                    id={"test-"+key2.toString()}
+                                                                    id={"answer-"+key2.toString()}
                                                                     name={"test-"+question.toString()}
                                                                     key={key2}
                                                                     type="radio"
@@ -161,7 +161,7 @@ const Tests = () => {
                                                         } else {
                                                             return(
                                                                 <Form.Check
-                                                                    id={"test-"+key2.toString()}
+                                                                    id={"answer-"+key2.toString()}
                                                                     name={"test-"+question.toString()}
                                                                     key={key2}
                                                                     type="radio"
@@ -176,7 +176,7 @@ const Tests = () => {
 
                                         if(quest.img !== undefined) {
                                             return([
-                                                    <Modal show={showPhoto} onHide={() => setShowPhoto(false)} key={0}>
+                                                    <Modal show={showPhoto} onHide={() => setShowPhoto(false)} key={0} centered>
                                                         <Modal.Header closeButton>
                                                             Изображение связанное с вопросом
                                                         </Modal.Header>

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import { useHistory } from "react-router-dom";
-import {Col, Container, ListGroup, Row} from "react-bootstrap";
+import {useHistory} from "react-router-dom";
+import {Col, Container, ListGroup, Row, Modal, Button} from "react-bootstrap";
+import {Icon28ClearDataOutline} from "@vkontakte/icons";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -10,6 +11,7 @@ import InfoAPI from "../API/InfoAPI";
 const ChoiceInfo = () => {
     const [info, setInfo] = useState(null);
     const [user, setUser] = useState(null);
+    const [activeModal, setActiveModal] = useState(false);
 
     let history = useHistory();
 
@@ -65,11 +67,58 @@ const ChoiceInfo = () => {
                                                 </ListGroup.Item>
                                         );
                                     })}
+                                    <Button
+                                        variant="outline-primary"
+                                        size="sm"
+                                        className="mt-5 text-center"
+                                        style={{
+                                            borderRadius: "20px"
+                                        }}
+                                        onClick={() => {
+                                            setActiveModal(true)
+                                        }}
+                                    >
+                                        <Icon28ClearDataOutline style={{ position: "absolute", bottom: 3 }}/>Начать все с чистого листа
+                                    </Button>
                                 </ListGroup>
                             </Col>
                             { window.innerWidth >= 961 && <Col/> }
                         </Row>
                     </Container>
+
+                    <Modal
+                        show={activeModal}
+                        onHide={() => { setActiveModal(false) }}
+                        centered
+                    >
+                        <Modal.Header>
+                            <Modal.Title>Вы уверены?</Modal.Title>
+                        </Modal.Header>
+
+                        <Modal.Body>
+                            <p>Данное действие нельзя отменить, оно полностью удалит данные о Вас с сайта, хорошо подумайте перед этим.</p>
+                        </Modal.Body>
+
+                        <Modal.Footer>
+                            <Button
+                                variant="outline-primary"
+                                size="sm"
+                                onClick={() => { setActiveModal(false) }}
+                            >
+                                Отмена
+                            </Button>
+                            <Button
+                                variant="outline-danger"
+                                size="sm"
+                                onClick={() => {
+                                    setActiveModal(false)
+                                    history.push("/clearData")
+                                }}
+                            >
+                                Да, я уверен
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
             }
         </main>,
