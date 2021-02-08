@@ -1,21 +1,18 @@
 import {Container, Nav, Navbar} from "react-bootstrap";
 import React from "react";
 import {Icon28LogoInstagram, Icon28LogoVkOutline, Icon28PincodeLockOutline} from "@vkontakte/icons";
-import {NavLink, useHistory} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import "../Styles/Header.css";
 
 const Header = () => {
-
-    const history = useHistory();
 
     return(
         <header style={{ marginBottom: "8.5rem" }}>
             <Navbar collapseOnSelect variant="dark" bg="primary" expand="lg" fixed="top">
                 <Container>
                     <Navbar.Brand
-                        onClick={() => { history.push("/") }}
-                        style={{ cursor: "pointer" }}
+                        href="/"
                     >
                         <Icon28PincodeLockOutline/>
                         Безопасность
