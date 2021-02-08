@@ -204,7 +204,8 @@ const Tests = () => {
                                 <Button
                                     disabled={showCorrect}
                                     onClick={() => {
-                                        if (selectedAnswer === -1) {
+                                        if(selectedAnswer === -2) return;
+                                        else if (selectedAnswer === -1) {
                                             setSelectedAnswer(-2);
                                             return;
                                         }
