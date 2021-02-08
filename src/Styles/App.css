@@ -5,6 +5,7 @@
 
 body {
     font-family: "VK Sans"!important;
+    overflow-x: hidden;
 }
 
 .btn {
@@ -21,4 +22,8 @@ a {
 
 .modal-content {
     box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+b {
+    color: black;
 }

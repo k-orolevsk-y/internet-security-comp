@@ -1,12 +1,12 @@
 main {
-    margin-top: 15%;
+    padding-top: 8%;
 }
 .containerTitle {
     text-align: center;
     position: relative;
 }
 .title {
-    font-size: 72px;
+    font-size: 64px;
     text-transform: uppercase;
 }
 .title > span {

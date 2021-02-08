@@ -91,7 +91,7 @@ const ChoiceInfo = () => {
                         onHide={() => { setActiveModal(false) }}
                         centered
                     >
-                        <Modal.Header>
+                        <Modal.Header closeButton>
                             <Modal.Title>Вы уверены?</Modal.Title>
                         </Modal.Header>
 
