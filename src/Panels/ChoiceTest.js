@@ -29,7 +29,7 @@ const ChoiceTest = () => {
 
     return([
         <Header key={0}/>,
-        <main key={1}>
+        <main key={1} style={{ paddingTop: "3%" }}>
             {test &&
             <div
                 style={{
@@ -58,7 +58,7 @@ const ChoiceTest = () => {
                                                 borderRadius: "20px"
                                             }}
                                             onClick={() => {
-                                                history.push('/test/'+key)
+                                                history.push('/test/'+key.toString()+"#greeting")
                                             }}
                                         >
                                             {test[key].name}

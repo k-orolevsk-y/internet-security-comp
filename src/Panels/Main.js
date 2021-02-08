@@ -43,7 +43,7 @@ const Main = () => {
 
     return([
         <Header key={0}/>,
-        <main key={1}>
+        <main key={1} style={{ paddingTop: "8%" }}>
             <Container fluid className="nextTextContainer">
                 <h2 style={{ textAlign: "center", fontSize: 96 }}>Кто же ты?</h2>
                 <Row className="justify-content-center">

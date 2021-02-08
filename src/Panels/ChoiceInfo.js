@@ -31,7 +31,7 @@ const ChoiceInfo = () => {
 
     return([
         <Header key={0}/>,
-        <main key={1}>
+        <main key={1} style={{ paddingTop: "3%" }}>
             {info &&
                 <div
                     style={{

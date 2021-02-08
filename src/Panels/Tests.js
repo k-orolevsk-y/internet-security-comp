@@ -30,7 +30,7 @@ const Tests = () => {
 
         const testResponse = TestsAPI.getTest(parseInt(params.testId));
         if(testResponse !== null) {
-            if(testResponse.whom === user) {
+            if(testResponse.whom === user || testResponse.whom === "all") {
                 setTest(testResponse);
             } else {
                 // specially, so that the inscription does not flash that such a test does not exist
@@ -47,7 +47,11 @@ const Tests = () => {
             let testStorageInfo = JSON.parse(localStorage.getItem("test-"+testResponse.id.toString()));
             if(testStorageInfo !== null && typeof(testStorageInfo) != "undefined") {
                 if(testStorageInfo.passed) {
-                    setTestPassed(true);
+                    if(testResponse.whom !== user && testResponse.whom !== "all") {
+                        setTest(null);
+                    } else {
+                        setTestPassed(true);
+                    }
                     return;
                 }
 
@@ -118,7 +122,7 @@ const Tests = () => {
             :
                 window.location.hash === "#greeting" && ( typeof(test.greeting) != "undefined" && test.greeting !== null ) ?
                     <Container className="text-center">
-                        <h2 className="mb-4" dangerouslySetInnerHTML={{__html: test.greeting}}/>
+                        <h2 style={window.innerWidth < 961 ? { fontSize: "16px" } : {}} className="mb-4" dangerouslySetInnerHTML={{__html: test.greeting}}/>
                         <Button
                             onClick={() =>
                                 history.push('/test/'+params.testId.toString())
