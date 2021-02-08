@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useParams, useHistory } from "react-router-dom";
-import {Form, Container, Button, Alert, Row, Col, Image, Modal} from "react-bootstrap";
-import {Icon32ErrorCircleOutline} from "@vkontakte/icons";
+import {Form, Container, Button, Row, Col, Image, Modal} from "react-bootstrap";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -135,12 +134,6 @@ const Tests = () => {
                                     {test.questions[question].title}
                                     {test.questions[question].img && <i style={{ fontSize: "16px", color: "gray" }}><br/>(У данного вопроса есть изображение)</i>}
                                 </h2>
-                                {selectedAnswer === -2 &&
-                                <Alert variant="danger" style={{ width: "60%", marginLeft: "20%" }}>
-                                    <Icon32ErrorCircleOutline style={{ margin: "0 auto" }}/>
-                                    Необходимо выбрать<br/>правильный ответ!
-                                </Alert>
-                                }
                                 {test.questions.map((quest, key) => {
                                     if(key === question) {
                                         const form = (
@@ -202,13 +195,9 @@ const Tests = () => {
                                     return null;
                                 })}
                                 <Button
-                                    disabled={showCorrect}
+                                    disabled={showCorrect || selectedAnswer === -1}
                                     onClick={() => {
-                                        if(selectedAnswer === -2) return;
-                                        else if (selectedAnswer === -1) {
-                                            setSelectedAnswer(-2);
-                                            return;
-                                        }
+                                        if (selectedAnswer === -1) return;
 
                                         let testStorageInfo = localStorage.getItem("test-" + test.id.toString());
                                         if (testStorageInfo === null || typeof (testStorageInfo) == "undefined") {
